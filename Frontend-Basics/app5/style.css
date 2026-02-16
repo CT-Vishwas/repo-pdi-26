@@ -1,6 +1,22 @@
-body{
-    background-color: aquamarine; 
+*{
     font-size:medium; 
-    font-family: monospace; 
+    font-family: monospace;
+}
+body{
+    background-color: aquamarine;  
     color: darkblue;
+}
+.input-labels{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 700;
+    color: black;
+}
+#male, #female{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 700;
+    color: black;
+}
+#contact-info{
+    width: max-content;
+    margin: 0 auto;
 }

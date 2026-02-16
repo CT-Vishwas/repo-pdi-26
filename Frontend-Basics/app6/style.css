@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+:root{
+    --bg-color: #BDF271;
+    --text-color: #00261C;
+    --accent-color:#2E7D32;
+}
+[data-theme="dark"]{
+    --bg-color: #00261C;
+    --text-color: #BDF271;
+    --accent-color:#2E7D32;
+}
+body{
+    font-family: 'Roboto';
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-colo 0.3s ease;
+}
+button{
+    background-color: var(--accent-color);
+    color: var(--text-color);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+#contact-info{
+    width: max-content;
+    margin: 0 auto;
+}
+button:hover{
+    cursor: pointer;
+    background-color: var(--text-color);
+    color: var(--accent-color);
+}
