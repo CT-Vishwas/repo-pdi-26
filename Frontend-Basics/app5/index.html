@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Contact Form</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
+    <header style="color: brown; background-color:blue;">
         <h1>A Simple Contact Form</h1>
     </header>
     <section>
@@ -26,8 +27,8 @@
                 <small>Format: 1234567890 (10 Digits)</small>
                 <br><br>
                 
-                <label for="age">Age</label>
-                <input type="number" placeholder="age"/><br><br>
+                <label for="age">Age:</label>
+                <input type="number" placeholder="age" min="0" max="100"/><br><br>
                 
                 <label for="city">City:</label>
                 <select name="city" id="city">
