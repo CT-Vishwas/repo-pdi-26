@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sample JS APP</title>
+    <script>
+        console.log("I am Learning Javascript")
+        var para = document.getElementById('para')
+        console.log(para)
+    </script>
+</head>
+<body>
+    Running JS in a Browser
+    <p id="para">This is a Paragraph Tag</p>
+
+    <input type="text" id="fullname"/>
+    <button onclick="btnclick(fullname.value)">Click Me</button>
+
+    <script src="script.js" type="text/javascript" ></script>
+    <script>
+        console.log("Hello World");
+        function btnclick(fname){
+            console.log('Name Entered is: ')
+            console.log(fname)
+        }
+    </script>
+</body>
+</html>
