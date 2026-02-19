@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Static Website</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Custom tweak to keep footer at the bottom */
+        body { display: flex; flex-direction: column; min-height: 100vh; }
+        main { flex: 1; }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="logos/logo-1.png" alt="MyLogo" width="50%" height="50%">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="resume.html">Resume</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="wallofskills.html">Skills</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container my-5">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+                <h1 class="display-4 fw-bold">Welcome to My Website</h1>
+                <p class="lead text-muted">This is my homepage built with Bootstrap. Use the navigation bar above to explore the other sections of the site. <br>
+                You can download pdf of my resume from <a href="/download/resume" download="Resume_vks.pdf">here</a>
+                </p>
+                <hr class="my-4">
+                <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                    <a href="resume.html" class="btn btn-primary btn-lg px-4 gap-3">Resume</a>
+                    <a href="wallofskills.html" class="btn btn-outline-secondary btn-lg px-4">Skills</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-light py-4 border-top">
+        <div class="container text-center">
+            <p class="mb-0 text-muted">&copy; 2026 Vishwas K Singh. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
