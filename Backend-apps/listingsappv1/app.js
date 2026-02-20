@@ -14,7 +14,7 @@ connectDB();
 
 app.use(express.json());
 // app.use('/api/v1/listings', listingRouter);
-app.use('/api/v1',routes);
+app.use(routes);
 
 
 app.listen(PORT, ()=>{

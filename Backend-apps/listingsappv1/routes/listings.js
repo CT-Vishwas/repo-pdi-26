@@ -1,15 +1,14 @@
 const express = require('express');
-const router = express.Router();
-// const Listing = require('../models/listings');
+const listingRoutes = express.Router();
 const listingController = require('../controllers/listingController');
 
 
-router.get('/', listingController.getListings);
-router.post('/', listingController.createListing);
-router.put('/', listingController.updateListing);
-router.delete('/', listingController.deleteListing);
-router.get('/search', listingController.searchListing);
-router.get('/:listingId', listingController.getSingleListing);
+listingRoutes.get('/', listingController.getListings);
+listingRoutes.post('/', listingController.createListing);
+listingRoutes.put('/', listingController.updateListing);
+listingRoutes.delete('/', listingController.deleteListing);
+listingRoutes.get('/search', listingController.searchListing);
+listingRoutes.get('/:listingId', listingController.getSingleListing);
 
 
 
@@ -29,35 +28,35 @@ router.get('/:listingId', listingController.getSingleListing);
 //     res.send(listings);
 // });
 
-router.get('/', async (req, res)=>{
-    let listings = await Listing.find();
-    res.send(listings);
-});
+// router.get('/', async (req, res)=>{
+//     let listings = await Listing.find();
+//     res.send(listings);
+// });
 
-router.post('/', async (req, res)=>{
-    console.log(req.body);
-    const { name, price, location } = req.body;
-    if(!name){
-        return res.send({ error: 'name is required'})
-    }
+// router.post('/', async (req, res)=>{
+//     console.log(req.body);
+//     const { name, price, location } = req.body;
+//     if(!name){
+//         return res.send({ error: 'name is required'})
+//     }
 
-    const listing = await Listing.create({name,price,location});
-    res.send(listing);
-});
+//     const listing = await Listing.create({name,price,location});
+//     res.send(listing);
+// });
 
-router.get('/search', (req,res)=>{
-    const { location } = req.query;
-    console.log('Location in Request: ', location);
+// router.get('/search', (req,res)=>{
+//     const { location } = req.query;
+//     console.log('Location in Request: ', location);
     
-    let listing = listings.find(l => l.location.toLowerCase() == location.toLowerCase());
-    res.send(listing);
-});
+//     let listing = listings.find(l => l.location.toLowerCase() == location.toLowerCase());
+//     res.send(listing);
+// });
 
-router.get('/:listingId', (req,res)=>{
-    const {listingId} = req.params;
-    let listing = listings.find(l => l.id === parseInt(listingId));
-    res.send(listing);
-});
+// router.get('/:listingId', (req,res)=>{
+//     const {listingId} = req.params;
+//     let listing = listings.find(l => l.id === parseInt(listingId));
+//     res.send(listing);
+// });
 
 
 
@@ -71,4 +70,4 @@ router.get('/:listingId', (req,res)=>{
 //     res.send('Hello, World Express');
 // });
 
-module.exports = router;
+module.exports = listingRoutes;
