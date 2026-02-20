@@ -4,6 +4,7 @@ const listingController = require('../controllers/listingController');
 
 // Listing Routes
 router.route('/api/v1/listings').get(listingController.getListings);
+router.route('/api/v1/listings').post(listingController.createListing);
 // router.post('/', listingController.createListing);
 // router.put('/', listingController.updateListing);
 // router.delete('/', listingController.deleteListing);

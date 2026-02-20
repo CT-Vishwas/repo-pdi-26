@@ -11,6 +11,17 @@ const listingController = {
                 .status(200)
                 .json(new ApiResponse(200, listingsDTOs, "Listings Fetched Successfully"));
     
+    },
+    async createListing(req,res){
+        const { name, price, location } = req.body;
+
+        const listing = await ListingService.createNewListing({name,price,location});
+        const listingDTO = new ListingDTO(listing);
+
+        return res
+                .status(201)
+                .json(new ApiResponse(200, listingDTO, "Listings Created Successfully"))
+
     }
 }
 
