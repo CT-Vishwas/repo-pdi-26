@@ -16,7 +16,7 @@ connectDB();
 
 app.use(express.json());
 // app.use('/api/v1/listings', listingRouter);
-app.use(routes);
+app.use('/api/v1',routes);
 
 app.use((req,res,next)=>{
     const error = new ApiError(404, "Route Not Found");
