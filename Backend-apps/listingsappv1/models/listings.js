@@ -3,15 +3,15 @@ const mongoose = require('mongoose');
 const listingSchema = new mongoose.Schema({
     name:{
         type: String,
-        required: true
+        required: [true, "Listing Name is Required"]
     },
     location:{
         type: String,
-        required: true
+        required: [true,"Location missing for Listing"]
     },
     price:{
         type: Number,
-        required: true
+        required: [true,"Price missing for Listing"]
     }
 });
 

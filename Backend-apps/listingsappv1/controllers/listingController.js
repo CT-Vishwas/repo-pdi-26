@@ -1,5 +1,6 @@
 const ListingDTO = require('../dtos/listingDTO');
 const ListingService = require('../services/listingService');
+const ApiError = require('../utils/ApiError');
 const ApiResponse  = require('../utils/ApiResponse');
 
 const listingController = {
@@ -12,8 +13,13 @@ const listingController = {
                 .json(new ApiResponse(200, listingsDTOs, "Listings Fetched Successfully"));
     
     },
-    async createListing(req,res){
+    async createListing(req,res, next){
         const { name, price, location } = req.body;
+
+        try{
+            if (!name){
+            throw new ApiError(400, "Required field name");
+        }
 
         const listing = await ListingService.createNewListing({name,price,location});
         const listingDTO = new ListingDTO(listing);
@@ -21,7 +27,9 @@ const listingController = {
         return res
                 .status(201)
                 .json(new ApiResponse(200, listingDTO, "Listings Created Successfully"))
-
+        } catch(error){
+            next(error);
+        }
     }
 }
 
