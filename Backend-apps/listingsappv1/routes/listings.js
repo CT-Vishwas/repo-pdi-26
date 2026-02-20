@@ -4,11 +4,11 @@ const listingController = require('../controllers/listingController');
 
 
 listingRoutes.route('/').get(listingController.getListings);
-// listingRoutes.post('/', listingController.createListing);
+listingRoutes.route('/').post(listingController.createListing);
 // listingRoutes.put('/', listingController.updateListing);
 // listingRoutes.delete('/', listingController.deleteListing);
-// listingRoutes.get('/search', listingController.searchListing);
-// listingRoutes.get('/:listingId', listingController.getSingleListing);
+listingRoutes.route('/search').get(listingController.searchListings);
+listingRoutes.route('/:id').get(listingController.getSingleListing);
 
 
 

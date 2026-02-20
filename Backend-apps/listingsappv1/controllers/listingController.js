@@ -30,6 +30,39 @@ const listingController = {
         } catch(error){
             next(error);
         }
+    },
+
+    async getSingleListing(req,res,next){
+        try{
+            const { id } = req.params;        
+            const listing = await ListingService.getListing(id);
+            const listingDTO = new ListingDTO(listing);
+
+            if(!listing){
+                throw new ApiError(404, "Listing Not Found");
+            }
+
+            return new ApiResponse(200, listingDTO, "Listing fetched Successfully");
+
+        } catch(error){
+            next(error);
+        }
+    },
+     async searchListings(req,res,next){
+        try{
+            const { name, price, location } = req.query;        
+            const listings = await ListingService.searchListings({name, price, location});
+            const listingDTO = new ListingDTO(listing);
+
+            if(!listing){
+                throw new ApiError(404, "Listing Not Found");
+            }
+
+            return new ApiResponse(200, listingDTO, "Listing fetched Successfully");
+
+        } catch(error){
+            next(error);
+        }
     }
 }
 

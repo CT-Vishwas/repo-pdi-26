@@ -1,4 +1,5 @@
 const Listing = require('../models/listings');
+const mongoose = require('mongoose');
 
 
 const listingService = {
@@ -9,6 +10,12 @@ const listingService = {
 
     async createNewListing(listingData){
         const listing = await Listing.create(listingData);
+        return listing;
+    },
+
+    async getListing(listingId){        
+        const listing = await Listing.findById(listingId).lean().exec();
+        // const listing = await Listing.findOne({ _id: listingId}).lean();
         return listing;
     }
 }
