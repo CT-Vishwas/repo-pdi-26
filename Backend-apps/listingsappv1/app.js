@@ -1,7 +1,7 @@
 const express = require('express');
 const dotenv = require('dotenv');
 const connectDB = require('./db/db');
-const listingRouter = require('./routes/listings');
+const routes = require('./routes');
 const app = express();
 const PORT = 3000;
 
@@ -13,8 +13,8 @@ connectDB();
 
 
 app.use(express.json());
-app.use('/api/v1/listings', listingRouter);
-
+// app.use('/api/v1/listings', listingRouter);
+app.use('/api/v1',routes);
 
 
 app.listen(PORT, ()=>{

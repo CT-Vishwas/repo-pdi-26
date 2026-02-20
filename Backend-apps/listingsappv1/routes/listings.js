@@ -1,6 +1,18 @@
 const express = require('express');
 const router = express.Router();
-const Listing = require('../models/listings');
+// const Listing = require('../models/listings');
+const listingController = require('../controllers/listingController');
+
+
+router.get('/', listingController.getListings);
+router.post('/', listingController.createListing);
+router.put('/', listingController.updateListing);
+router.delete('/', listingController.deleteListing);
+router.get('/search', listingController.searchListing);
+router.get('/:listingId', listingController.getSingleListing);
+
+
+
 
 // In memory database
 // let listings = [
