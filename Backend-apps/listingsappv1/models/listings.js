@@ -5,14 +5,21 @@ const listingSchema = new mongoose.Schema({
         type: String,
         required: [true, "Listing Name is Required"]
     },
-    location:{
-        type: String,
-        required: [true,"Location missing for Listing"]
+    city:{
+        type: String
     },
-    price:{
-        type: Number,
-        required: [true,"Price missing for Listing"]
+    state:{
+        type: String
     }
+    // location:{
+    //     type: String,
+    //     required: [true,"Location missing for Listing"]
+    // },
+    // price:{
+    //     type: Number,
+    //     required: [true,"Price missing for Listing"]
+    // }
+
 });
 
 module.exports = mongoose.model('Listing', listingSchema);
