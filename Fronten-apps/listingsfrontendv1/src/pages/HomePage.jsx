@@ -1,20 +1,21 @@
-import Footer from "../components/layout/Footer";
-import Header from "../components/layout/Header";
+import ListingCard from "../components/listings/ListingCard";
+
+let listings = [
+  { id: 1, name: "vks apt", price: 25000, location:"Bengaluru", image:"public/images/ouse.jpg"},
+  { id: 2, name: "vks apt", price: 25000, location:"Bengaluru", image:"public/images/ouse.jpg"},
+  { id: 3, name: "vks apt", price: 25000, location:"Bengaluru", image:"public/images/ouse.jpg"},
+  { id: 4, name: "vks apt", price: 25000, location:"Bengaluru", image:"public/images/ouse.jpg"}
+];
+
 export default function HomePage(){
     return(
-        <>
-        <Header />
-        <div class="object-fill">
-<div class="flex ...">
-  <div class="flex-1 ...">01</div>
-  <div class="contents">
-    <div class="flex-1 ...">02</div>
-    <div class="flex-1 ...">03</div>
-  </div>
-  <div class="flex-1 ...">04</div>
-</div>
+        <div  className="grid grid-cols-3 grid-rows-none gap-4">
+          <h2>Listings</h2>
+          {listings.map((listing)=>
+            <ListingCard 
+              listing={listing}
+            />
+          )}
         </div>
-        <Footer />
-        </>
     )
 }
