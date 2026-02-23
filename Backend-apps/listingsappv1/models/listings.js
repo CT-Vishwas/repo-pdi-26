@@ -10,6 +10,18 @@ const listingSchema = new mongoose.Schema({
     },
     state:{
         type: String
+    },
+    photo:{
+        type: String
+    },
+    availableUnits:{
+        type: Number
+    },
+    wifi:{
+        type: Boolean
+    },
+    laundry:{
+        type: Boolean
     }
     // location:{
     //     type: String,

@@ -6,6 +6,10 @@ class ListingDTO{
         this.name = listings.name;
         this.city = listings.city;
         this.state = listings.state;
+        this.image = listings.photo;
+        this.availableUnits = listings.availableUnits;
+        this.wifi = listings.wifi;
+        this.laundry = listings.laundry;
         // this.price = listings.price;
         // this.location = listings.location;
     }
