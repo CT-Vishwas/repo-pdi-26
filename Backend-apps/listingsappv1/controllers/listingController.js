@@ -36,7 +36,6 @@ const listingController = {
     async getSingleListing(req,res,next){
         try{
             const { id } = req.params;
-            console.log(typeof id, id.length);
             if(!mongoose.Types.ObjectId.isValid(id)){
                throw new ApiError(400, "Invalid ID");
             }

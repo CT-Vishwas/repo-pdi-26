@@ -1,6 +1,4 @@
 export default async function Loading({params}) {
-
-
     return (
         <div className="max-w-6xl mx-auto p-4 bg-base-100 min-h-screen">
             <header className="mb-6">
