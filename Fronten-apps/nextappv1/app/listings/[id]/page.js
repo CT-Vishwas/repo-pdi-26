@@ -27,7 +27,7 @@ export default function Page({ params }) {
         // Client-side fetch
         const fetchDetails = async () => {
             try {
-                const res = await fetch(`http://localhost:3000/api/v1/listings/${id}`);
+                const res = await fetch(`http://localhost:5000/api/v1/listings/${id}`);
                 if (!res.ok) throw new Error('Not found');
                 const data = await res.json();
                 setListing(data.data);

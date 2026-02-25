@@ -2,7 +2,7 @@ import Link from 'next/link';
 import React from 'react';
 
 async function getAllListings() {
-    const res = await fetch("http://localhost:3000/api/v1/listings", {
+    const res = await fetch("http://localhost:5000/api/v1/listings", {
         method: 'GET'
     });
     console.log("ResponseData", res);

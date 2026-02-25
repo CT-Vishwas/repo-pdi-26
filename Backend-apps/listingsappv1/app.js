@@ -6,7 +6,7 @@ const routes = require('./routes');
 const ApiError = require('./utils/ApiError');
 const errorHandler = require('./middlewares/error.middleware');
 const app = express();
-const PORT = 3000;
+const PORT = 5000;
 
 // Load environment variables from .env file
 dotenv.config();
