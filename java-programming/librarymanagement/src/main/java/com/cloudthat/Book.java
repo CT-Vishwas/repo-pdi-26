@@ -1,6 +1,6 @@
 package com.cloudthat;
 
-public class Book {
+public class Book implements LibraryItem{
     private String isbn;
     private String title;
     private String author;
