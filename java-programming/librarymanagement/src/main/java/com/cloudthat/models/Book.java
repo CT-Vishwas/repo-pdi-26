@@ -87,4 +87,13 @@ public class Book implements LibraryItem {
         result = 31 * result + getAuthor().hashCode();
         return result;
     }
+
+    public  static Book fromCsv(String[] columns){
+        if(columns.length < 3) return null;
+        String isbn = columns[0].trim();
+        String title = columns[1].trim();
+        String author = columns[2].trim();
+
+        return  new Book(isbn,title,author);
+    }
 }

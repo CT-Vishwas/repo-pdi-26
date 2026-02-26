@@ -11,6 +11,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 
@@ -25,8 +26,10 @@ public class CSVReader {
 //            }
 
         try(Stream<String> lines = Files.lines(Paths.get(path))){
-            lines.map(line -> line.split(","))
-                    .forEach(columns ->bookList.add(new Book(columns[0],columns[1],columns[2])));
+           bookList =  lines.map(line -> line.split(","))
+                    .map(Book::fromCsv)
+                    .collect(Collectors.toList());
+//                    .forEach(columns ->bookList.add(new Book(columns[0],columns[1],columns[2])));
 
             return bookList;
         } catch (IOException e){
