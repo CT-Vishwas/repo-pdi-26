@@ -1,8 +1,10 @@
 package com.cloudthat.models;
 
 import com.cloudthat.library.LibraryItem;
+import com.cloudthat.utils.ValidISBN;
 
 public class Book implements LibraryItem {
+    @ValidISBN
     private String isbn;
     private String title;
     private String author;

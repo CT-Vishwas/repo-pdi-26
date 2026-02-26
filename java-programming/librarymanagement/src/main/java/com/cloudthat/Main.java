@@ -5,9 +5,12 @@ import com.cloudthat.models.Book;
 import com.cloudthat.utils.CSVReader;
 
 
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
 import java.util.Optional;
-import java.util.concurrent.CompletableFuture;
+import java.util.Properties;
 import java.util.concurrent.ExecutionException;
 import java.util.function.Consumer;
 
@@ -16,10 +19,20 @@ import java.util.function.Consumer;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) throws ExecutionException, InterruptedException {
+        Properties prop = new Properties();
+        String dataUrl = "";
+        try(InputStream input = Main.class.getClassLoader().getResourceAsStream("config.properties")){
+            prop.load(input);
+            dataUrl = prop.getProperty("data.url");
+            System.out.println("The data file path is: "+dataUrl);
+        }catch (IOException ex){
+            ex.printStackTrace();
+        }
 
         Library library = new Library();
         CSVReader csvreader = new CSVReader();
-        List<Book> books = csvreader.reader("C:\\Users\\VishwasKSingh\\Workspace\\deloitte-workspace\\pdi-workspace-26\\java-programming\\librarymanagement\\src\\main\\java\\com\\cloudthat\\utils\\data.csv");
+//        List<Book> books = csvreader.reader("C:\\Users\\VishwasKSingh\\Workspace\\deloitte-workspace\\pdi-workspace-26\\java-programming\\librarymanagement\\src\\main\\java\\com\\cloudthat\\utils\\data.csv");
+        List<Book> books = csvreader.reader(dataUrl);
 
         if(!books.isEmpty()){
             for(Book b : books){
