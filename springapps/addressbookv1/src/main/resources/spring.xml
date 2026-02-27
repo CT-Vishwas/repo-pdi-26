@@ -13,8 +13,13 @@
 
     </bean>
     <bean id="phonenumber" class="com.cloudthat.PhoneNumber" >
-        <property name="countryCode" value="+91"/>
-        <property name="number" value="1234567890"/>
+<!--        <constructor-arg name="countryCode" value="+91"/>-->
+<!--        <constructor-arg name="number" value="1234567890"/>-->
+        <constructor-arg name="countryCode" value="1234567890"/>
+        <constructor-arg  name="number" value="+91"/>
+
+<!--        <property name="countryCode" value="+91"/>-->
+<!--        <property name="number" value="1234567890"/>-->
     </bean>
 
     <!-- more bean definitions go here -->

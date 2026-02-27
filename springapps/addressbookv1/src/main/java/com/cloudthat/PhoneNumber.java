@@ -27,4 +27,9 @@ public class PhoneNumber {
                 ", number='" + number + '\'' +
                 '}';
     }
+
+    public PhoneNumber(String countryCode, String number) {
+        this.countryCode = countryCode;
+        this.number = number;
+    }
 }
