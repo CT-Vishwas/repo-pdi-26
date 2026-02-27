@@ -1,13 +1,14 @@
 package com.cloudthat;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+@Component
 public class User {
     private String userName;
     private  String emailId;
 //    private String phoneNumber;
 
-    @Autowired
     private PhoneNumber phoneNumber;
 
     public String getUserName() {
@@ -31,6 +32,15 @@ public class User {
     }
 
     public void setPhoneNumber(PhoneNumber phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public User() {
+    }
+
+    public User(String userName, String emailId, PhoneNumber phoneNumber) {
+        this.userName = userName;
+        this.emailId = emailId;
         this.phoneNumber = phoneNumber;
     }
 

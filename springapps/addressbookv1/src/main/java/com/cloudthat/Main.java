@@ -11,8 +11,10 @@ public class Main {
     public static void main(String[] args) {
 //        ApplicationContext ctx = new ClassPathXmlApplicationContext("spring.xml");
 
-        AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(BeanConfig.class);
-        User u1 = (User) ctx.getBean("user");
+        ApplicationContext ctx = new AnnotationConfigApplicationContext(BeanConfig.class);
+        User u1 = (User) ctx.getBean(User.class);
+        u1.setUserName("vishwas");
+        u1.setEmailId("vishwas@cloudthat.com");
 
         System.out.println("User name:" + u1.getUserName());
         System.out.println("User email id: "+ u1.getEmailId());
