@@ -7,21 +7,5 @@
 		http://www.springframework.org/schema/context
 		https://www.springframework.org/schema/context/spring-context.xsd">
 
-<!--    <bean id="user" class="com.cloudthat.User" scope="prototype">-->
-<!--        &lt;!&ndash; collaborators and configuration for this bean go here &ndash;&gt;-->
-<!--        <property name="userName" value="John" />-->
-<!--        <property name="emailId" value="john@cloudthat.com" />-->
-<!--        <property name="phoneNumber" value="1234567890" />-->
-<!--        <property name="phoneNumber" ref="phonenumber"/>-->
-
-<!--    </bean>-->
-<!--    <bean id="phonenumber" class="com.cloudthat.PhoneNumber" >-->
-<!--        <constructor-arg name="countryCode" value="+91"/>-->
-<!--        <constructor-arg name="number" value="1234567890"/>-->
-<!--    -->
-
-<!--        <property name="countryCode" value="+91"/>-->
-<!--        <property name="number" value="1234567890"/>-->
-<!--    </bean>-->
     <context:annotation-config />
 </beans>

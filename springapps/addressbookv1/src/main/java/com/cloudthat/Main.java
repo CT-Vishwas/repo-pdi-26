@@ -11,7 +11,7 @@ public class Main {
     public static void main(String[] args) {
 //        ApplicationContext ctx = new ClassPathXmlApplicationContext("spring.xml");
 
-        AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext("BeanConfig.class");
+        AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(BeanConfig.class);
         User u1 = (User) ctx.getBean("user");
 
         System.out.println("User name:" + u1.getUserName());

@@ -6,16 +6,16 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class BeanConfig {
 
-    @Bean
+    @Bean(name = "user")
     public User user(){
-        PhoneNumber p = new PhoneNumber("+91","1234567890");
-
         User u = new User();
         u.setUserName("Vishwas");
         u.setEmailId("vishwas@cloudthat.com");
-        u.setPhoneNumber(p);
-
         return u;
+    }
 
+    @Bean(name = "phoneNumber")
+    public PhoneNumber phoneNumber(){
+        return new PhoneNumber("+91","1234567890");
     }
 }
