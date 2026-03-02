@@ -7,13 +7,13 @@ import org.springframework.context.annotation.Configuration;
 @ConfigurationProperties(prefix = "app")
 public class AppConfig {
 
-    private String helpEmail;
+    private String supportEmail;
 
-    public String getHelpEmail() {
-        return helpEmail;
+    public String getSupportEmail() {
+        return supportEmail;
     }
 
-    public void setHelpEmail(String helpEmail) {
-        this.helpEmail = helpEmail;
+    public void setSupportEmail(String supportEmail) {
+        this.supportEmail = supportEmail;
     }
 }

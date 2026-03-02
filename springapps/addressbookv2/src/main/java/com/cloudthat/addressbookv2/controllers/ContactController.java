@@ -37,6 +37,6 @@ public class ContactController {
 
     @GetMapping("/help")
     public String help(){
-        return "You can get help using mailto:"+appConfig.getHelpEmail();
+        return "You can get help using mailto:"+appConfig.getSupportEmail();
     }
 }
