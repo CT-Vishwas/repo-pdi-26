@@ -1,4 +1,4 @@
-package com.cloudthat.controller;
+package com.cloudthat.hellomvc.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,7 +9,7 @@ public class HelloController {
 
     @GetMapping("/hello")
     public String greet(Model model){
-        model.addAttribute("message", "Hello World Vishwas");
-        return "hello";
+        model.addAttribute("message","Hello World MVC Spring");
+        return "index";
     }
 }
