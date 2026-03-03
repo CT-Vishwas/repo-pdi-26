@@ -14,4 +14,4 @@ spring:
         show_sql: 'true'
         hibernate:
           format_sql: 'true'
-          ddl-auto: 'update'
+          ddl-auto: 'create-drop'

@@ -1,19 +1,46 @@
 package com.cloudthat.addressbookv2.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import org.hibernate.annotations.CreationTimestamp;
 
-@Entity
+import java.time.Instant;
+import java.time.LocalDate;
+
+@Entity(name = "Contact")
+@Table(name = "AddressBook")
 public class Contact {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "contactId")
     private Long id;
+
+    @Column(name="contactName", length = 50)
     private String contactName;
     private String emailId;
+
+    @Column(length = 10)
     private Integer phoneNumber;
+
+    @Convert(converter = GenderConverter.class)
+    private Gender Gender;
+
+    @Enumerated(EnumType.ORDINAL)
+    private PhoneType phoneType;
+
+    @Convert(converter = org.hibernate.type.NumericBooleanConverter.class)
+    private Boolean isActive = true;
+
+    @Lob
+    private byte[] profilePicture;
+
+    private LocalDate dob;
+
+    @CreationTimestamp
+    private Instant createdAt;
+
+    @Embedded
+    private Address address;
 
     public Long getId() {
         return id;
