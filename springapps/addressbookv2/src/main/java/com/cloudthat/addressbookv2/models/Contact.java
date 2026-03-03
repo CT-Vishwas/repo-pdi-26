@@ -25,7 +25,7 @@ public class Contact {
     private List<PhoneNumber> phoneNumbers = new ArrayList<PhoneNumber>();
 
     @Convert(converter = GenderConverter.class)
-    private Gender Gender;
+    private Gender gender;
 
     @Convert(converter = org.hibernate.type.NumericBooleanConverter.class)
     private Boolean isActive = true;
@@ -77,11 +77,11 @@ public class Contact {
     }
 
     public Gender getGender() {
-        return Gender;
+        return gender;
     }
 
     public void setGender(Gender gender) {
-        Gender = gender;
+        this.gender = gender;
     }
 
     public Boolean getActive() {
@@ -125,5 +125,10 @@ public class Contact {
     }
 
     public Contact() {
+    }
+
+    public void addPhoneNumber(PhoneNumber phoneNumber){
+        phoneNumbers.add(phoneNumber);
+        phoneNumber.setContact(this);
     }
 }

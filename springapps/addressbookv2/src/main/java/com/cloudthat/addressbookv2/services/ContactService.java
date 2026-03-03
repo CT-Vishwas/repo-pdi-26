@@ -18,6 +18,11 @@ public class ContactService {
     }
 
     public Contact createContact(Contact contact) {
+        if(contact.getPhoneNumbers() != null){
+            contact.getPhoneNumbers().forEach(
+                    phone -> phone.setContact(contact)
+            );
+        }
         return contactRepository.save(contact);
     }
 }
