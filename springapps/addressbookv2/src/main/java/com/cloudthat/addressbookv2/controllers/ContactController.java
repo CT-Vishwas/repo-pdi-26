@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/v1/contacts")
@@ -30,6 +31,17 @@ public class ContactController {
         return contactService.getAllContacts();
     }
 
+    @GetMapping("/{id}")
+    public Optional<Contact> getContact(@PathVariable Long id){
+        return  contactService.getSingleContact(id);
+    }
+
+    @GetMapping("/search")
+    public Optional<Contact> search(
+            @RequestParam String email
+    ){
+        return contactService.getContactFromEmail(email);
+    }
     @PostMapping
     public Contact create(@RequestBody Contact contact){
         return contactService.createContact(contact);
