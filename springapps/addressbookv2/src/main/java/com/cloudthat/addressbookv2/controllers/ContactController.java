@@ -5,6 +5,8 @@ import com.cloudthat.addressbookv2.models.Contact;
 import com.cloudthat.addressbookv2.services.ContactService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -27,8 +29,9 @@ public class ContactController {
     }
 
     @GetMapping
-    public List<Contact> getAll(){
-        return contactService.getAllContacts();
+    public Page<Contact> getAll(Pageable pageable){
+
+        return contactService.getAllContacts(pageable);
     }
 
     @GetMapping("/{id}")

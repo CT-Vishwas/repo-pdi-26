@@ -5,7 +5,10 @@ import com.cloudthat.addressbookv2.models.Tag;
 import com.cloudthat.addressbookv2.repositories.ContactRepository;
 import com.cloudthat.addressbookv2.repositories.TagRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+
 
 import java.util.List;
 import java.util.Optional;
@@ -21,8 +24,9 @@ public class ContactService {
     @Autowired
     private TagRepository tagRepository;
 
-    public List<Contact> getAllContacts() {
-        return  contactRepository.findAll();
+    public Page<Contact> getAllContacts(Pageable pageable) {
+
+        return  contactRepository.findAll(pageable);
     }
 
     public Contact createContact(Contact contact) {
