@@ -1,6 +1,7 @@
 package com.cloudthat.addressbookv2.controllers;
 
 import com.cloudthat.addressbookv2.config.AppConfig;
+import com.cloudthat.addressbookv2.dtos.ContactModel;
 import com.cloudthat.addressbookv2.models.Contact;
 import com.cloudthat.addressbookv2.services.ContactService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,9 +46,14 @@ public class ContactController {
     ){
         return contactService.getContactFromEmail(email);
     }
+//    @PostMapping
+//    public Contact create(@RequestBody Contact contact){
+//        return contactService.createContact(contact);
+//    }
+
     @PostMapping
-    public Contact create(@RequestBody Contact contact){
-        return contactService.createContact(contact);
+    public Contact create(@RequestBody ContactModel contactModel){
+        return contactService.createContact(contactModel);
     }
 
     @GetMapping("/help")

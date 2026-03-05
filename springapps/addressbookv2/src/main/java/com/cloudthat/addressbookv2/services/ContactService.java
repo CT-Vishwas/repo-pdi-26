@@ -1,5 +1,7 @@
 package com.cloudthat.addressbookv2.services;
 
+import com.cloudthat.addressbookv2.dtos.ContactModel;
+import com.cloudthat.addressbookv2.mappers.ContactMapper;
 import com.cloudthat.addressbookv2.models.Contact;
 import com.cloudthat.addressbookv2.models.Tag;
 import com.cloudthat.addressbookv2.repositories.ContactRepository;
@@ -22,6 +24,9 @@ public class ContactService {
     private ContactRepository contactRepository;
 
     @Autowired
+    private ContactMapper contactMapper;
+
+    @Autowired
     private TagRepository tagRepository;
 
     public Page<Contact> getAllContacts(Pageable pageable) {
@@ -29,23 +34,43 @@ public class ContactService {
         return  contactRepository.findAll(pageable);
     }
 
-    public Contact createContact(Contact contact) {
-        System.out.println(contact);
-        if(contact.getPhoneNumbers() != null){
-            contact.getPhoneNumbers().forEach(
-                    phone -> phone.setContact(contact)
-            );
-        }
+//    public Contact createContact(Contact contact) {
+//        System.out.println(contact);
+//        if(contact.getPhoneNumbers() != null){
+//            contact.getPhoneNumbers().forEach(
+//                    phone -> phone.setContact(contact)
+//            );
+//        }
+//
+//        if(contact.getTags() != null){
+//            List<Tag> managedTags = contact.getTags().stream()
+//                    .map(tag -> tagRepository.findByTagName(tag.getTagName())
+//                            .orElseGet(()->tagRepository.save(tag)))
+//                    .collect(Collectors.toList());
+//
+//            contact.setTags(managedTags);
+//        }
+//        return contactRepository.save(contact);
+//    }
 
-        if(contact.getTags() != null){
-            List<Tag> managedTags = contact.getTags().stream()
-                    .map(tag -> tagRepository.findByTagName(tag.getTagName())
-                            .orElseGet(()->tagRepository.save(tag)))
-                    .collect(Collectors.toList());
+    public Contact createContact(ContactModel contactModel) {
+//        if(contact.getPhoneNumbers() != null){
+//            contact.getPhoneNumbers().forEach(
+//                    phone -> phone.setContact(contact)
+//            );
+//        }
+//
+//        if(contact.getTags() != null){
+//            List<Tag> managedTags = contact.getTags().stream()
+//                    .map(tag -> tagRepository.findByTagName(tag.getTagName())
+//                            .orElseGet(()->tagRepository.save(tag)))
+//                    .collect(Collectors.toList());
+//
+//            contact.setTags(managedTags);
+//        }
 
-            contact.setTags(managedTags);
-        }
-        return contactRepository.save(contact);
+
+        return contactRepository.save(contactMapper.toContact(contactModel));
     }
 
     public Optional<Contact> getSingleContact(Long id) {
