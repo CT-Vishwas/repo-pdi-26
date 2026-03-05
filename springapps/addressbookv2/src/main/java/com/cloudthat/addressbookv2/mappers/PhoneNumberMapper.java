@@ -16,4 +16,14 @@ public class PhoneNumberMapper {
 
         return phoneNumber;
     }
+
+    public PhoneNumberModel toPhoneNumberModel(PhoneNumber phoneNumber){
+        if(phoneNumber == null) return null;
+
+        return new PhoneNumberModel(
+                phoneNumber.getCountryCode(),
+                phoneNumber.getNumber(),
+                phoneNumber.getPhoneType()
+        );
+    }
 }

@@ -52,7 +52,7 @@ public class ContactController {
 //    }
 
     @PostMapping
-    public Contact create(@RequestBody ContactModel contactModel){
+    public ContactModel create(@RequestBody ContactModel contactModel){
         return contactService.createContact(contactModel);
     }
 

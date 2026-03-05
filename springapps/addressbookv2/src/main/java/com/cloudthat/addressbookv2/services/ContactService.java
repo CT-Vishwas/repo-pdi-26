@@ -53,7 +53,7 @@ public class ContactService {
 //        return contactRepository.save(contact);
 //    }
 
-    public Contact createContact(ContactModel contactModel) {
+    public ContactModel createContact(ContactModel contactModel) {
 //        if(contact.getPhoneNumbers() != null){
 //            contact.getPhoneNumbers().forEach(
 //                    phone -> phone.setContact(contact)
@@ -69,8 +69,8 @@ public class ContactService {
 //            contact.setTags(managedTags);
 //        }
 
-
-        return contactRepository.save(contactMapper.toContact(contactModel));
+        Contact newContact = contactRepository.save(contactMapper.toContact(contactModel));
+        return contactMapper.toContactModel(newContact);
     }
 
     public Optional<Contact> getSingleContact(Long id) {

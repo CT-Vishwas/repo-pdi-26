@@ -13,8 +13,8 @@ public record ContactModel(
         Gender gender,
         byte[] profilePicture,
         LocalDate dob,
-        AddressModel address,
-        List<PhoneNumberModel> phoneNumbers,
-        List<String> tagNames
+//        AddressModel address,
+        List<PhoneNumberModel> phoneNumbers
+//        List<String> tagNames
 ) {
 }
