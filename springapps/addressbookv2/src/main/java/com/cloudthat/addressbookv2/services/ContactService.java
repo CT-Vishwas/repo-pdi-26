@@ -35,32 +35,10 @@ public class ContactService {
         return  contactRepository.findAll(pageable);
     }
 
-//    public Contact createContact(Contact contact) {
-//        System.out.println(contact);
-//        if(contact.getPhoneNumbers() != null){
-//            contact.getPhoneNumbers().forEach(
-//                    phone -> phone.setContact(contact)
-//            );
-//        }
-//
-//        if(contact.getTags() != null){
-//            List<Tag> managedTags = contact.getTags().stream()
-//                    .map(tag -> tagRepository.findByTagName(tag.getTagName())
-//                            .orElseGet(()->tagRepository.save(tag)))
-//                    .collect(Collectors.toList());
-//
-//            contact.setTags(managedTags);
-//        }
-//        return contactRepository.save(contact);
-//    }
+
 
     public ContactModel createContact(ContactModel contactModel) {
-//        if(contact.getPhoneNumbers() != null){
-//            contact.getPhoneNumbers().forEach(
-//                    phone -> phone.setContact(contact)
-//            );
-//        }
-//
+
         List<Tag> managedTags = new ArrayList<Tag>();
         if(contactModel.tags() != null){
             managedTags = contactModel.tags().stream()

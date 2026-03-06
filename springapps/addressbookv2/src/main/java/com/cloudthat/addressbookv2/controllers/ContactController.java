@@ -1,6 +1,7 @@
 package com.cloudthat.addressbookv2.controllers;
 
 import com.cloudthat.addressbookv2.config.AppConfig;
+import com.cloudthat.addressbookv2.dtos.ApiResponse;
 import com.cloudthat.addressbookv2.dtos.ContactModel;
 import com.cloudthat.addressbookv2.models.Contact;
 import com.cloudthat.addressbookv2.services.ContactService;
@@ -8,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -52,8 +54,13 @@ public class ContactController {
 //    }
 
     @PostMapping
-    public ContactModel create(@RequestBody ContactModel contactModel){
-        return contactService.createContact(contactModel);
+    public ResponseEntity<ApiResponse<ContactModel>> create(@RequestBody ContactModel contactModel){
+        ContactModel savedContactModel = contactService.createContact(contactModel);
+        if(savedContactModel == null){
+            return ResponseEntity.status(400).body(new ApiResponse<>(false, "Cannot Create Contact",null,0L));
+        }
+
+        return ResponseEntity.status(201).body(new ApiResponse<>(true,"Contact Created Successfully",savedContactModel,0L));
     }
 
     @GetMapping("/help")
