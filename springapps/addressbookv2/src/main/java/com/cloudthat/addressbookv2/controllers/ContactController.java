@@ -6,13 +6,11 @@ import com.cloudthat.addressbookv2.dtos.ContactModel;
 import com.cloudthat.addressbookv2.models.Contact;
 import com.cloudthat.addressbookv2.services.ContactService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -22,9 +20,6 @@ public class ContactController {
     @Autowired
     private ContactService contactService;
 
-//    @Value("${app.support-email}")
-//    private String helpEmail;
-
     private final AppConfig appConfig;
 
     public ContactController(AppConfig appConfig){
@@ -32,9 +27,14 @@ public class ContactController {
     }
 
     @GetMapping
-    public Page<Contact> getAll(Pageable pageable){
+    public ResponseEntity<ApiResponse<Page<ContactModel>>> getAll(Pageable pageable){
+        Page<ContactModel> page = contactService.getAllContacts(pageable);
 
-        return contactService.getAllContacts(pageable);
+        if(page == null){
+            return ResponseEntity.status(404).body(new ApiResponse<>(false,"No Contacts found", null,0L));
+        }
+
+        return ResponseEntity.status(200).body(new ApiResponse<>(true,"Contacts fetched successfully",page,0L));
     }
 
     @GetMapping("/{id}")
@@ -48,10 +48,6 @@ public class ContactController {
     ){
         return contactService.getContactFromEmail(email);
     }
-//    @PostMapping
-//    public Contact create(@RequestBody Contact contact){
-//        return contactService.createContact(contact);
-//    }
 
     @PostMapping
     public ResponseEntity<ApiResponse<ContactModel>> create(@RequestBody ContactModel contactModel){
