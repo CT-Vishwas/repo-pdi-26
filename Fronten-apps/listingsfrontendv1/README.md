@@ -1,16 +1,41 @@
-# React + Vite
+# Listings Frontend v1 (React + Vite)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React + Vite application for displaying real estate / product listings. Uses REST fetch to a local API and renders cards.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Vite + React, client-side only
+- Fetch listings from `http://localhost:3000/api/v1/listings`
+- Listings card UI (grid display)
+- Route-based page navigation (Home, About)
+- Simple layout wrapper
 
-## React Compiler
+## Folder Structure
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- `src/App.jsx` - main app container
+- `src/routes/AppRoutes.jsx` - React Router config
+- `src/pages/HomePage.jsx` - fetch & display listings
+- `src/pages/AboutPage.jsx` - about page
+- `src/components/layout/Layout.jsx` - app chrome
+- `src/components/listings/ListingCard.jsx` - card UI component
+- `src/services/api/ListingsService.js` - API data service
 
-## Expanding the ESLint configuration
+## Prerequisites
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Node.js 18+
+- npm / yarn / pnpm
+
+## Setup & Run
+
+```bash
+cd Fronten-apps/listingsfrontendv1
+npm install
+npm run dev
+```
+
+Open app at the port shown in terminal (usually `http://localhost:5173`).
+
+## Notes
+
+- Requires backend endpoint `GET /api/v1/listings` returning JSON `{ data: [...] }`.
+- You can substitute any listings API by editing `src/services/api/ListingsService.js`.
